@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useTheme } from "@/context/ThemeContext";
 import { COLORS } from "@/constants/colors";
 import SectionTitle from "@/components/ui/SectionTitle";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 type ContactForm = { name: string; email: string; message: string };
 
@@ -22,6 +23,7 @@ const fields: {
 
 export default function ContactSection() {
   const { dark, textMain, textSub, cardBg } = useTheme();
+  const { ref, animStyle } = useScrollAnimation<HTMLElement>();
   const [contactForm, setContactForm] = useState<ContactForm>({
     name: "",
     email: "",
@@ -51,10 +53,12 @@ export default function ContactSection() {
 
   return (
     <section
+      ref={ref}
       id="contact"
       style={{
         padding: "100px 5%",
         background: dark ? "#13131f" : "#f5f5ff",
+        ...animStyle,
       }}
     >
       <div style={{ maxWidth: 640, margin: "0 auto" }}>

@@ -4,14 +4,17 @@ import { useTheme } from "@/context/ThemeContext";
 import { COLORS } from "@/constants/colors";
 import { experiences } from "@/data/experiences";
 import SectionTitle from "@/components/ui/SectionTitle";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export default function ExperienceSection() {
   const { dark, textMain, textSub, cardBg } = useTheme();
+  const { ref, animStyle } = useScrollAnimation<HTMLElement>();
 
   return (
     <section
+      ref={ref}
       id="experience"
-      style={{ padding: "100px 5%", maxWidth: 1100, margin: "0 auto" }}
+      style={{ padding: "100px 5%", maxWidth: 1100, margin: "0 auto", ...animStyle }}
     >
       <SectionTitle title="Experience" accent={COLORS.coral} />
       <div style={{ position: "relative" }}>
@@ -92,7 +95,12 @@ export default function ExperienceSection() {
                         marginTop: 4,
                       }}
                     >
-                      {[exp.company.trim(), exp.department, exp.level]
+                      {[
+                        exp.company.trim(),
+                        exp.department,
+                        exp.position,
+                        exp.level,
+                      ]
                         .filter(Boolean)
                         .map((item, idx, arr) => (
                           <span
@@ -143,24 +151,47 @@ export default function ExperienceSection() {
                     {exp.period}
                   </span>
                 </div>
-                <ul
+                <div
                   style={{
                     margin: "0 0 16px",
-                    paddingLeft: 20,
                     display: "flex",
                     flexDirection: "column",
-                    gap: 6,
+                    gap: 8,
                   }}
                 >
                   {exp.desc.map((d, j) => (
-                    <li
+                    <div
                       key={j}
-                      style={{ fontSize: 14, color: textSub, lineHeight: 1.7 }}
+                      style={{
+                        display: "flex",
+                        alignItems: "flex-start",
+                        gap: 8,
+                      }}
                     >
-                      {d}
-                    </li>
+                      <span
+                        style={{
+                          flexShrink: 0,
+                          marginTop: 2,
+                          fontSize: 13,
+                          fontWeight: 700,
+                          color: exp.color,
+                          lineHeight: 1.7,
+                        }}
+                      >
+                        ▶
+                      </span>
+                      <span
+                        style={{
+                          fontSize: 14,
+                          color: textSub,
+                          lineHeight: 1.7,
+                        }}
+                      >
+                        {d}
+                      </span>
+                    </div>
                   ))}
-                </ul>
+                </div>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
                   {exp.stack.map((s) => (
                     <span

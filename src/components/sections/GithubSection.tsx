@@ -3,13 +3,16 @@ import { COLORS } from "@/constants/colors";
 import { githubStats } from "@/data/githubStats";
 import StatCard from "@/components/ui/StatCard";
 import SectionTitle from "@/components/ui/SectionTitle";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export default function GithubSection() {
   const { dark, textMain, textSub } = useTheme();
+  const { ref, animStyle } = useScrollAnimation<HTMLElement>();
   return (
     <section
+      ref={ref}
       id="github"
-      style={{ padding: "100px 5%", maxWidth: 1100, margin: "0 auto" }}
+      style={{ padding: "100px 5%", maxWidth: 1100, margin: "0 auto", ...animStyle }}
     >
       <SectionTitle title="GitHub Stats" accent={COLORS.mint} />
       <div

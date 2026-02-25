@@ -4,11 +4,13 @@ import { COLORS } from "@/constants/colors";
 import { skills } from "@/data/skills";
 import SkillBar from "@/components/ui/SkillBar";
 import SectionTitle from "@/components/ui/SectionTitle";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export default function AboutSection() {
   const { textSub, cardBg } = useTheme();
   const [skillsVisible, setSkillsVisible] = useState(false);
   const skillsRef = useRef<HTMLDivElement>(null);
+  const { ref: sectionRef, animStyle } = useScrollAnimation<HTMLElement>();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -23,14 +25,15 @@ export default function AboutSection() {
 
   const stats = [
     { label: "경력", value: "2년" },
-    { label: "프로젝트", value: "12+" },
+    { label: "프로젝트", value: "4+" },
     { label: "커밋", value: "1,200+" },
   ];
 
   return (
     <section
+      ref={sectionRef}
       id="about"
-      style={{ padding: "100px 5%", maxWidth: 1100, margin: "0 auto" }}
+      style={{ padding: "100px 5%", maxWidth: 1100, margin: "0 auto", ...animStyle }}
     >
       <SectionTitle title="About Me" accent={COLORS.sky} />
       <div
@@ -50,9 +53,10 @@ export default function AboutSection() {
               marginBottom: 24,
             }}
           >
-            2년간 스타트업과 에이전시에서 다양한 웹 서비스를 개발해왔습니다.
-            사용자가 불편함을 느끼지 않는 인터페이스를 만드는 것을 목표로
-            합니다.
+            웹 디자이너로 커리어를 시작하며 UI/UX 완성도에 대한 감각을 키웠고,
+            이를 실제 화면으로 구현하고 싶다는 생각에 웹퍼블리싱으로 영역을
+            확장했습니다. 이후 단순 구현을 넘어 서비스의 동작 구조와 로직까지
+            이해하고 싶어 프론트엔드 개발자로 전환했습니다.
           </p>
           <p
             style={{
@@ -62,9 +66,9 @@ export default function AboutSection() {
               marginBottom: 32,
             }}
           >
-            Next.js App Router와 TypeScript를 주로 사용하며, 성능 최적화와
-            접근성에 관심이 많습니다. 최근에는 디자인 시스템 구축 경험을 쌓고
-            있습니다.
+            디자인과 마크업에 대한 높은 이해도를 기반으로, React/Next.js 중심의
+            컴포넌트설계와 유지보수 가능한 코드 구조를 고민하며 성장해왔습니다.
+            기획·디자인·개발 사이의 연결을 잘 이해하는 것이 저의 강점입니다.
           </p>
           <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
             {stats.map((item) => (

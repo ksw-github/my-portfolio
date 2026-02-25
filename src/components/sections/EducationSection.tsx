@@ -4,16 +4,20 @@ import { useTheme } from "@/context/ThemeContext";
 import { COLORS } from "@/constants/colors";
 import { educations, certifications } from "@/data/educations";
 import SectionTitle from "@/components/ui/SectionTitle";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export default function EducationSection() {
   const { dark, textMain, textSub, cardBg } = useTheme();
+  const { ref, animStyle } = useScrollAnimation<HTMLElement>();
 
   return (
     <section
+      ref={ref}
       id="education"
       style={{
         padding: "100px 5%",
         background: dark ? "#13131f" : "#f5f5ff",
+        ...animStyle,
       }}
     >
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
