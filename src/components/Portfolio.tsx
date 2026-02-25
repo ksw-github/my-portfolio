@@ -13,6 +13,7 @@ import EducationSection from "@/components/sections/EducationSection";
 import ProjectsSection from "@/components/sections/ProjectsSection";
 import GithubSection from "@/components/sections/GithubSection";
 import ContactSection from "@/components/sections/ContactSection";
+import ScrollTopButton from "@/components/ui/ScrollTopButton";
 
 export default function Portfolio() {
   const { bg, textMain } = useTheme();
@@ -108,6 +109,7 @@ export default function Portfolio() {
         <ContactSection />
         <Footer />
       </div>
+      <ScrollTopButton />
     </div>
   );
 }
