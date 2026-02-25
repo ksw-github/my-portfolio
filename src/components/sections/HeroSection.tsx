@@ -81,7 +81,7 @@ export default function HeroSection({ onScrollTo }: HeroSectionProps) {
         >
           안녕하세요,
           <br />
-          프론트엔드 개발자
+          웹 프론트엔드 개발자
           <br />
           김서우입니다
         </h1>
@@ -96,7 +96,7 @@ export default function HeroSection({ onScrollTo }: HeroSectionProps) {
         >
           사용자 경험을 중심으로 생각하는 프론트엔드 개발자입니다.
           <br />
-          React와 Next.js로 빠르고 아름다운 웹을 만듭니다.
+          React와 Next.js로 빠르고 편리한 웹을 만듭니다.
         </p>
         <div
           style={{
@@ -149,24 +149,39 @@ export default function HeroSection({ onScrollTo }: HeroSectionProps) {
             flexWrap: "wrap",
           }}
         >
-          {["React", "Next.js", "TypeScript", "Tailwind", "Node.js"].map(
-            (t, i) => (
-              <span
-                key={t}
-                style={{
-                  padding: "6px 16px",
-                  borderRadius: 99,
-                  background: techColors[i % 5] + "22",
-                  color: techColors[i % 5],
-                  fontWeight: 700,
-                  fontSize: 13,
-                  border: `1px solid ${techColors[i % 5]}44`,
-                }}
-              >
-                {t}
-              </span>
-            ),
-          )}
+          {[
+            "React",
+            "Next.js",
+            "TypeScript",
+            "Vite",
+            "Tailwind",
+            "SCSS",
+            "Linux",
+            "Ubuntu",
+            "Git",
+            "Jira",
+            "Notion",
+            "Github",
+            "Gitlab",
+            "Figma",
+            "Photoshop",
+            "Illustrator",
+          ].map((t, i) => (
+            <span
+              key={t}
+              style={{
+                padding: "6px 16px",
+                borderRadius: 99,
+                background: techColors[i % 5] + "22",
+                color: techColors[i % 5],
+                fontWeight: 700,
+                fontSize: 13,
+                border: `1px solid ${techColors[i % 5]}44`,
+              }}
+            >
+              {t}
+            </span>
+          ))}
         </div>
       </div>
     </section>

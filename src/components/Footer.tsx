@@ -21,7 +21,7 @@ export default function Footer() {
           <span style={{ color: COLORS.sky }}>{">"}</span>
         </span>
       </div>
-      <p>© 2026 김서우 All rights reserved. Built with Next.js & 💙</p>
+      <p>© 2026 김서우 Built with Next.js & All rights reserved💙</p>
       <div
         style={{
           display: "flex",

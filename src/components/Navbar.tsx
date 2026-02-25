@@ -64,10 +64,6 @@ export default function Navbar({ activeSection, onScrollTo }: NavbarProps) {
             cursor: "pointer",
             transition: "transform 0.2s",
           }}
-          onMouseEnter={(e) =>
-            (e.currentTarget.style.transform = "scale(1.08)")
-          }
-          onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
         >
           <span style={{ color: COLORS.coral }}>{"<"}</span>
           <span style={{ color: textMain }}>SW</span>

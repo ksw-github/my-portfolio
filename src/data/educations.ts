@@ -16,7 +16,7 @@ export const certifications: Certification[] = [
   {
     name: "정보처리기사",
     issuer: "한국산업인력공단",
-    date: "2025.05",
+    date: "2026.05",
     color: COLORS.mint,
     icon: "📜",
   },

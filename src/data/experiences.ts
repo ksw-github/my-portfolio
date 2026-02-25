@@ -5,11 +5,13 @@ export const experiences: Experience[] = [
   {
     company: "에이치디에스 ",
     department: "기업부설연구소",
+    position: "웹 프론트엔드",
     level: "연구원",
     role: "Frontend Developer",
     period: "2024.12 ~ 재직중",
     desc: [
       "APEC 2025 경비안전 관제 시스템 개발",
+      "APEC 2025 경비안전 관제 시스템 퍼블리싱",
       "APEC 2025 백오피스 시스템 개발",
       "위치기반 백오피스 시스템 개발",
     ],
@@ -30,8 +32,9 @@ export const experiences: Experience[] = [
   {
     company: "디지탈센스",
     department: "시스템 개발팀",
+    position: "웹 퍼블리셔",
     level: "사원/팀원",
-    role: "Frontend Developer",
+    role: "Web Publisher",
     period: "2023.10 ~ 2024.11 (1년 3개월)",
     desc: [
       "한국인삼공사 무인출입/안전관리 시스템 개발",
@@ -53,7 +56,8 @@ export const experiences: Experience[] = [
   },
   {
     company: "스마트몰",
-    department: "",
+    department: "디자인팀",
+    position: "웹 디자이너",
     level: "사원",
     role: "Web Designer",
     period: "2017.04 ~ 2017.12 (9개월)",
