@@ -10,7 +10,8 @@ export interface Project {
   desc: string;
   stack: string[];
   color: string;
-  emoji: string;
+  image: string;
+  company: string;
   github: string;
   demo: string;
 }
@@ -26,6 +27,7 @@ export interface Experience {
   company: string;
   department?: string;
   level?: string;
+  position: string;
   role: string;
   period: string;
   desc: string[];
