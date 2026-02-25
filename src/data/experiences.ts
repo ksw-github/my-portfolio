@@ -1,0 +1,65 @@
+import { COLORS } from "@/constants/colors";
+import { Experience } from "@/types";
+
+export const experiences: Experience[] = [
+  {
+    company: "에이치디에스 ",
+    department: "기업부설연구소",
+    level: "연구원",
+    role: "Frontend Developer",
+    period: "2024.12 ~ 재직중",
+    desc: [
+      "APEC 2025 경비안전 관제 시스템 개발",
+      "APEC 2025 백오피스 시스템 개발",
+      "위치기반 백오피스 시스템 개발",
+    ],
+    stack: [
+      "React",
+      "TypeScript",
+      "Vite",
+      "Zustand",
+      "TanStack Query",
+      "WebSocket",
+      "Cesium",
+      "SCSS",
+      "Figma",
+    ],
+    color: COLORS.coral,
+    icon: "🚀",
+  },
+  {
+    company: "디지탈센스",
+    department: "시스템 개발팀",
+    level: "사원/팀원",
+    role: "Frontend Developer",
+    period: "2023.10 ~ 2024.11 (1년 3개월)",
+    desc: [
+      "한국인삼공사 무인출입/안전관리 시스템 개발",
+      "한국인삼공사 무인출입/안전관리 UI/UX 퍼블리싱",
+      "사내 모바일 방문증 앱 UI 디자인",
+      "울산광역시 안내 키오스크 UI 디자인",
+    ],
+    stack: [
+      "jQuery",
+      "JavaScript",
+      "Bootstrap",
+      "MongoDB",
+      "Figma",
+      "Photoshop",
+      "Illustrator",
+    ],
+    color: COLORS.purple,
+    icon: "💼",
+  },
+  {
+    company: "스마트몰",
+    department: "",
+    level: "사원",
+    role: "Web Designer",
+    period: "2017.04 ~ 2017.12 (9개월)",
+    desc: ["사내 유지보수 및 상세페이지 디자인"],
+    stack: ["HTML", "CSS", "Photoshop", "Illustrator"],
+    color: COLORS.sky,
+    icon: "🎨",
+  },
+];
