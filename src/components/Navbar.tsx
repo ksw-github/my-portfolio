@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { useTheme } from "@/context/ThemeContext";
 import { COLORS } from "@/constants/colors";
 
@@ -20,139 +19,59 @@ interface NavbarProps {
 }
 
 export default function Navbar({ activeSection, onScrollTo }: NavbarProps) {
-  const { dark, toggleDark, textMain, textSub, navBg } = useTheme();
-  const [hovered, setHovered] = useState<string | null>(null);
+  const { dark, toggleDark } = useTheme();
 
   return (
-    <>
-      <style>{`
-        @keyframes navSlideDown {
-          from { transform: translateY(-100%); opacity: 0; }
-          to   { transform: translateY(0);    opacity: 1; }
-        }
-        @keyframes logoHover {
-          0%   { transform: scale(1); }
-          50%  { transform: scale(1.08); }
-          100% { transform: scale(1); }
-        }
-      `}</style>
-      <nav
-        style={{
-          position: "fixed",
-          top: 0,
-          left: 0,
-          right: 0,
-          zIndex: 100,
-          background: navBg,
-          backdropFilter: "blur(12px)",
-          borderBottom: `1px solid ${dark ? "#ffffff15" : "#00000010"}`,
-          padding: "0 5%",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          height: 64,
-          animation: "navSlideDown 0.4s cubic-bezier(0.4,0,0.2,1) both",
-        }}
+    <nav
+      className="fixed top-0 left-0 right-0 z-[100] bg-theme-nav backdrop-blur-[12px] px-[5%] flex items-center justify-between h-16 border-b dark:border-white/[0.08] border-black/[0.06] [animation:navSlideDown_0.4s_cubic-bezier(0.4,0,0.2,1)_both]"
+    >
+      {/* 로고 */}
+      <div
+        onClick={() => window.location.reload()}
+        className="font-black text-[22px] tracking-[-1px] cursor-pointer hover:scale-[1.08] transition-transform duration-200"
       >
-        {/* 로고 */}
-        <div
-          onClick={() => window.location.reload()}
+        <span className="text-coral">{"<"}</span>
+        <span className="text-theme-text">SW</span>
+        <span className="text-mint">{"/"}</span>
+        <span className="text-sky">{">"}</span>
+      </div>
+
+      {/* 네비게이션 버튼 */}
+      <div className="flex gap-1 items-center">
+        {SECTIONS.map((s) => {
+          const isActive = activeSection === s;
+          return (
+            <button
+              key={s}
+              onClick={() => onScrollTo(s)}
+              className={[
+                "relative border-none rounded-lg px-[14px] py-[6px] text-sm capitalize cursor-pointer",
+                "transition-[background,color,transform] duration-200",
+                isActive
+                  ? "bg-coral text-white font-bold"
+                  : "bg-transparent text-theme-sub font-semibold dark:hover:bg-white/[0.07] hover:bg-black/[0.03] hover:text-theme-text hover:-translate-y-px",
+              ].join(" ")}
+            >
+              {s}
+              {isActive && (
+                <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-coral" />
+              )}
+            </button>
+          );
+        })}
+
+        {/* 다크모드 토글 */}
+        <button
+          onClick={toggleDark}
+          className="flex items-center justify-center w-9 h-9 rounded-full ml-2 text-base border-none cursor-pointer transition-[transform,background] duration-200 hover:scale-110 hover:rotate-[15deg]"
           style={{
-            fontWeight: 900,
-            fontSize: 22,
-            letterSpacing: -1,
-            cursor: "pointer",
-            transition: "transform 0.2s",
+            background: dark ? COLORS.yellow : "#1a1a2e",
+            color: dark ? "#1a1a2e" : "#fff",
           }}
         >
-          <span style={{ color: COLORS.coral }}>{"<"}</span>
-          <span style={{ color: textMain }}>SW</span>
-          <span style={{ color: COLORS.mint }}>{"/"}</span>
-          <span style={{ color: COLORS.sky }}>{">"}</span>
-        </div>
-
-        {/* 네비게이션 버튼 */}
-        <div style={{ display: "flex", gap: 4, alignItems: "center" }}>
-          {SECTIONS.map((s) => {
-            const isActive = activeSection === s;
-            const isHovered = hovered === s;
-            return (
-              <button
-                key={s}
-                onClick={() => onScrollTo(s)}
-                onMouseEnter={() => setHovered(s)}
-                onMouseLeave={() => setHovered(null)}
-                style={{
-                  position: "relative",
-                  background: isActive
-                    ? COLORS.coral
-                    : isHovered
-                      ? dark
-                        ? "#ffffff12"
-                        : "#00000008"
-                      : "transparent",
-                  color: isActive ? "#fff" : isHovered ? textMain : textSub,
-                  border: "none",
-                  borderRadius: 8,
-                  padding: "6px 14px",
-                  fontWeight: isActive ? 700 : 600,
-                  fontSize: 14,
-                  cursor: "pointer",
-                  transition: "background 0.2s, color 0.2s, transform 0.15s",
-                  textTransform: "capitalize",
-                  transform:
-                    isHovered && !isActive ? "translateY(-1px)" : "none",
-                }}
-              >
-                {s}
-                {/* 활성 섹션 하단 점 표시 (비활성 상태일 때 대비용) */}
-                {isActive && (
-                  <span
-                    style={{
-                      position: "absolute",
-                      bottom: -8,
-                      left: "50%",
-                      transform: "translateX(-50%)",
-                      width: 4,
-                      height: 4,
-                      borderRadius: "50%",
-                      background: COLORS.coral,
-                    }}
-                  />
-                )}
-              </button>
-            );
-          })}
-
-          {/* 다크모드 토글 */}
-          <button
-            onClick={toggleDark}
-            onMouseEnter={(e) =>
-              (e.currentTarget.style.transform = "scale(1.1) rotate(15deg)")
-            }
-            onMouseLeave={(e) =>
-              (e.currentTarget.style.transform = "scale(1) rotate(0deg)")
-            }
-            style={{
-              background: dark ? COLORS.yellow : "#1a1a2e",
-              color: dark ? "#1a1a2e" : "#fff",
-              border: "none",
-              borderRadius: 50,
-              width: 36,
-              height: 36,
-              fontSize: 16,
-              cursor: "pointer",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              marginLeft: 8,
-              transition: "transform 0.2s, background 0.3s",
-            }}
-          >
-            {dark ? "☀️" : "🌙"}
-          </button>
-        </div>
-      </nav>
-    </>
+          {dark ? "☀️" : "🌙"}
+        </button>
+      </div>
+    </nav>
   );
 }

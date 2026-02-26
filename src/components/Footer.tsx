@@ -1,45 +1,21 @@
-import { useTheme } from "@/context/ThemeContext";
-import { COLORS } from "@/constants/colors";
-
 export default function Footer() {
-  const { dark, textSub } = useTheme();
   return (
-    <footer
-      style={{
-        textAlign: "center",
-        padding: "40px 5%",
-        borderTop: `1px solid ${dark ? "#ffffff10" : "#00000010"}`,
-        color: textSub,
-        fontSize: 14,
-      }}
-    >
-      <div style={{ marginBottom: 16 }}>
-        <span style={{ fontWeight: 900, fontSize: 18 }}>
-          <span style={{ color: COLORS.coral }}>{"<"}</span>
+    <footer className="text-center px-[5%] py-10 border-t dark:border-white/[0.06] border-black/[0.06] text-theme-sub text-sm">
+      <div className="mb-4">
+        <span className="font-black text-[18px]">
+          <span className="text-coral">{"<"}</span>
           SW
-          <span style={{ color: COLORS.mint }}>{"/"}</span>
-          <span style={{ color: COLORS.sky }}>{">"}</span>
+          <span className="text-mint">{"/"}</span>
+          <span className="text-sky">{">"}</span>
         </span>
       </div>
       <p>© 2026 김서우 Built with Next.js & All rights reserved💙</p>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          gap: 16,
-          marginTop: 12,
-        }}
-      >
+      <div className="flex justify-center gap-4 mt-3">
         {["GitHub", "LinkedIn", "Email"].map((link) => (
           <a
             key={link}
             href="#"
-            style={{
-              color: COLORS.coral,
-              textDecoration: "none",
-              fontWeight: 600,
-              fontSize: 13,
-            }}
+            className="text-coral no-underline font-semibold text-[13px]"
           >
             {link}
           </a>

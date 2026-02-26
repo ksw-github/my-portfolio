@@ -1,27 +1,18 @@
-import { useTheme } from "@/context/ThemeContext";
-
 interface SectionTitleProps {
   title: string;
   accent: string;
 }
 
 export default function SectionTitle({ title, accent }: SectionTitleProps) {
-  const { dark } = useTheme();
   return (
-    <div style={{ marginBottom: 48 }}>
-      <h2
-        style={{
-          fontSize: "clamp(28px, 4vw, 44px)",
-          fontWeight: 900,
-          margin: "0 0 12px",
-          color: dark ? "#f0f0ff" : "#1a1a2e",
-        }}
-      >
+    <div className="mb-12">
+      <h2 className="text-[clamp(28px,4vw,44px)] font-black mt-0 mb-3 text-theme-text">
         {title}
         <span style={{ color: accent }}>.</span>
       </h2>
       <div
-        style={{ width: 60, height: 4, background: accent, borderRadius: 99 }}
+        className="w-[60px] h-1 rounded-full"
+        style={{ background: accent }}
       />
     </div>
   );

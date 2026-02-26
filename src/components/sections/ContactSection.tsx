@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { useTheme } from "@/context/ThemeContext";
 import { COLORS } from "@/constants/colors";
@@ -22,7 +24,7 @@ const fields: {
 ];
 
 export default function ContactSection() {
-  const { dark, textMain, textSub, cardBg } = useTheme();
+  const { dark } = useTheme();
   const { ref, animStyle } = useScrollAnimation<HTMLElement>();
   const [contactForm, setContactForm] = useState<ContactForm>({
     name: "",
@@ -38,60 +40,31 @@ export default function ContactSection() {
     setContactForm({ name: "", email: "", message: "" });
   };
 
-  const inputStyle = {
-    width: "100%",
-    padding: "12px 16px",
-    borderRadius: 12,
-    border: `2px solid ${dark ? "#ffffff22" : "#00000015"}`,
-    background: dark ? "#0f0f1a" : "#fafafa",
-    color: textMain,
-    fontSize: 15,
-    outline: "none",
-    boxSizing: "border-box" as const,
-    transition: "border 0.2s",
-  };
+  const inputBorder = `2px solid ${dark ? "#ffffff22" : "#00000015"}`;
 
   return (
     <section
       ref={ref}
       id="contact"
-      style={{
-        padding: "100px 5%",
-        background: dark ? "#13131f" : "#f5f5ff",
-        ...animStyle,
-      }}
+      className="py-[100px] px-[5%] dark:bg-[#13131f]"
+      style={animStyle}
     >
-      <div style={{ maxWidth: 640, margin: "0 auto" }}>
+      <div className="max-w-[640px] mx-auto">
         <SectionTitle title="Contact" accent={COLORS.purple} />
-        <div
-          style={{
-            background: cardBg,
-            borderRadius: 24,
-            padding: 40,
-            boxShadow: "0 4px 30px rgba(0,0,0,0.08)",
-          }}
-        >
+        <div className="bg-theme-card rounded-[24px] p-10 shadow-[0_4px_30px_rgba(0,0,0,0.08)]">
           {submitted ? (
-            <div style={{ textAlign: "center", padding: "40px 0" }}>
-              <div style={{ fontSize: 60, marginBottom: 16 }}>🎉</div>
-              <h3 style={{ color: COLORS.mint, fontSize: 24, fontWeight: 800 }}>
+            <div className="text-center py-10">
+              <div className="text-[60px] mb-4">🎉</div>
+              <h3 className="text-mint text-[24px] font-extrabold">
                 메시지가 전송되었습니다!
               </h3>
-              <p style={{ color: textSub }}>빠른 시일 내에 답변드리겠습니다.</p>
+              <p className="text-theme-sub">빠른 시일 내에 답변드리겠습니다.</p>
             </div>
           ) : (
             <form onSubmit={handleSubmit}>
               {fields.map((field) => (
-                <div key={field.key} style={{ marginBottom: 20 }}>
-                  <label
-                    style={{
-                      display: "block",
-                      fontWeight: 700,
-                      marginBottom: 8,
-                      fontSize: 14,
-                      color: textMain,
-                    }}
-                  >
+                <div key={field.key} className="mb-5">
+                  <label className="block font-bold mb-2 text-sm text-theme-text">
                     {field.label}
                   </label>
                   <input
@@ -105,51 +78,36 @@ export default function ContactSection() {
                       })
                     }
                     required
-                    style={inputStyle}
+                    className="w-full px-4 py-3 rounded-xl text-[15px] outline-none transition-[border] duration-200 text-theme-text dark:bg-[#0f0f1a] bg-[#fafafa] box-border"
+                    style={{ border: inputBorder }}
                   />
                 </div>
               ))}
-              <div style={{ marginBottom: 24 }}>
-                <label
-                  style={{
-                    display: "block",
-                    fontWeight: 700,
-                    marginBottom: 8,
-                    fontSize: 14,
-                    color: textMain,
-                  }}
-                >
+              <div className="mb-6">
+                <label className="block font-bold mb-2 text-sm text-theme-text">
                   메시지
                 </label>
                 <textarea
                   placeholder="안녕하세요, 협업 제안이 있습니다..."
                   value={contactForm.message}
                   onChange={(e) =>
-                    setContactForm({ ...contactForm, message: e.target.value })
+                    setContactForm({
+                      ...contactForm,
+                      message: e.target.value,
+                    })
                   }
                   required
                   rows={5}
-                  style={{
-                    ...inputStyle,
-                    resize: "vertical",
-                    fontFamily: "inherit",
-                  }}
+                  className="w-full px-4 py-3 rounded-xl text-[15px] outline-none transition-[border] duration-200 resize-y font-[inherit] text-theme-text dark:bg-[#0f0f1a] bg-[#fafafa] box-border"
+                  style={{ border: inputBorder }}
                 />
               </div>
               <button
                 type="submit"
+                className="w-full py-[14px] text-white border-none rounded-xl font-extrabold text-base cursor-pointer transition-transform duration-200 hover:-translate-y-0.5"
                 style={{
-                  width: "100%",
-                  padding: "14px 0",
                   background: `linear-gradient(135deg, ${COLORS.purple}, ${COLORS.sky})`,
-                  color: "#fff",
-                  border: "none",
-                  borderRadius: 12,
-                  fontWeight: 800,
-                  fontSize: 16,
-                  cursor: "pointer",
                   boxShadow: `0 6px 24px ${COLORS.purple}55`,
-                  transition: "transform 0.2s",
                 }}
               >
                 메시지 보내기 ✉️

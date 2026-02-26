@@ -6,13 +6,18 @@ import SectionTitle from "@/components/ui/SectionTitle";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export default function GithubSection() {
-  const { dark, textMain, textSub } = useTheme();
+  const { dark } = useTheme();
   const { ref, animStyle } = useScrollAnimation<HTMLElement>();
   return (
     <section
       ref={ref}
       id="github"
-      style={{ padding: "100px 5%", maxWidth: 1100, margin: "0 auto", ...animStyle }}
+      style={{
+        padding: "100px 5%",
+        maxWidth: 1100,
+        margin: "0 auto",
+        ...animStyle,
+      }}
     >
       <SectionTitle title="GitHub Stats" accent={COLORS.mint} />
       <div
@@ -46,12 +51,11 @@ export default function GithubSection() {
               margin: "0 0 6px",
               fontSize: 20,
               fontWeight: 800,
-              color: textMain,
             }}
           >
             GitHub 프로필
           </h3>
-          <p style={{ margin: 0, color: textSub, fontSize: 14 }}>
+          <p style={{ margin: 0, fontSize: 14 }}>
             더 많은 프로젝트와 코드를 확인하세요
           </p>
         </div>
