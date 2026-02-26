@@ -7,94 +7,45 @@ import SectionTitle from "@/components/ui/SectionTitle";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export default function ExperienceSection() {
-  const { dark, textMain, textSub, cardBg } = useTheme();
+  const { dark } = useTheme();
   const { ref, animStyle } = useScrollAnimation<HTMLElement>();
 
   return (
     <section
       ref={ref}
       id="experience"
-      style={{ padding: "100px 5%", maxWidth: 1100, margin: "0 auto", ...animStyle }}
+      className="py-[100px] px-[5%] max-w-[1100px] mx-auto"
+      style={animStyle}
     >
       <SectionTitle title="Experience" accent={COLORS.coral} />
-      <div style={{ position: "relative" }}>
+      <div className="relative">
         {/* 타임라인 세로선 */}
-        <div
-          style={{
-            position: "absolute",
-            left: 20,
-            top: 0,
-            bottom: 0,
-            width: 2,
-            background: `linear-gradient(to bottom, ${COLORS.coral}, ${COLORS.sky})`,
-            borderRadius: 99,
-          }}
-        />
-        <div style={{ display: "flex", flexDirection: "column", gap: 32 }}>
+        <div className="absolute left-5 top-0 bottom-0 w-0.5 rounded-full bg-gradient-to-b from-coral to-sky" />
+        <div className="flex flex-col gap-8">
           {experiences.map((exp, i) => (
-            <div
-              key={i}
-              style={{ display: "flex", gap: 32, alignItems: "flex-start" }}
-            >
+            <div key={i} className="flex gap-8 items-start">
               {/* 타임라인 아이콘 */}
               <div
+                className="shrink-0 w-[42px] h-[42px] rounded-full flex items-center justify-center text-[20px] z-10"
                 style={{
-                  flexShrink: 0,
-                  width: 42,
-                  height: 42,
-                  borderRadius: "50%",
                   background: exp.color,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontSize: 20,
                   boxShadow: `0 0 16px ${exp.color}66`,
-                  zIndex: 1,
                 }}
               >
                 {exp.icon}
               </div>
+
               {/* 카드 */}
               <div
-                style={{
-                  flex: 1,
-                  background: cardBg,
-                  borderRadius: 20,
-                  padding: "28px 32px",
-                  boxShadow: "0 2px 20px rgba(0,0,0,0.07)",
-                  border: `2px solid ${exp.color}22`,
-                }}
+                className="flex-1 bg-theme-card rounded-[20px] px-8 py-7 shadow-[0_2px_20px_rgba(0,0,0,0.07)]"
+                style={{ border: `2px solid ${exp.color}22` }}
               >
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "flex-start",
-                    flexWrap: "wrap",
-                    gap: 8,
-                    marginBottom: 12,
-                  }}
-                >
+                <div className="flex justify-between items-start flex-wrap gap-2 mb-3">
                   <div>
-                    <h3
-                      style={{
-                        margin: 0,
-                        fontSize: 20,
-                        fontWeight: 800,
-                        color: textMain,
-                      }}
-                    >
+                    <h3 className="m-0 text-[20px] font-extrabold text-theme-text">
                       {exp.role}
                     </h3>
-                    <div
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        flexWrap: "wrap",
-                        gap: 0,
-                        marginTop: 4,
-                      }}
-                    >
+                    <div className="flex items-center flex-wrap mt-1">
                       {[
                         exp.company.trim(),
                         exp.department,
@@ -103,10 +54,7 @@ export default function ExperienceSection() {
                       ]
                         .filter(Boolean)
                         .map((item, idx, arr) => (
-                          <span
-                            key={idx}
-                            style={{ display: "flex", alignItems: "center" }}
-                          >
+                          <span key={idx} className="flex items-center">
                             <span
                               style={{
                                 fontSize: idx === 0 ? 15 : 13,
@@ -123,12 +71,8 @@ export default function ExperienceSection() {
                             </span>
                             {idx < arr.length - 1 && (
                               <span
-                                style={{
-                                  margin: "0 6px",
-                                  color: dark ? "#8888aa" : "#999",
-                                  fontWeight: 400,
-                                  fontSize: 15,
-                                }}
+                                className="mx-[6px] text-[15px] font-normal"
+                                style={{ color: dark ? "#8888aa" : "#999" }}
                               >
                                 |
                               </span>
@@ -138,72 +82,37 @@ export default function ExperienceSection() {
                     </div>
                   </div>
                   <span
+                    className="rounded-lg px-3 py-1 text-[13px] font-bold whitespace-nowrap"
                     style={{
                       background: `${exp.color}18`,
                       color: exp.color,
-                      borderRadius: 8,
-                      padding: "4px 12px",
-                      fontSize: 13,
-                      fontWeight: 700,
-                      whiteSpace: "nowrap",
                     }}
                   >
                     {exp.period}
                   </span>
                 </div>
-                <div
-                  style={{
-                    margin: "0 0 16px",
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: 8,
-                  }}
-                >
+
+                <div className="mb-4 flex flex-col gap-2">
                   {exp.desc.map((d, j) => (
-                    <div
-                      key={j}
-                      style={{
-                        display: "flex",
-                        alignItems: "flex-start",
-                        gap: 8,
-                      }}
-                    >
+                    <div key={j} className="flex items-start gap-2">
                       <span
-                        style={{
-                          flexShrink: 0,
-                          marginTop: 2,
-                          fontSize: 13,
-                          fontWeight: 700,
-                          color: exp.color,
-                          lineHeight: 1.7,
-                        }}
+                        className="shrink-0 mt-0.5 text-[13px] font-bold leading-[1.7]"
+                        style={{ color: exp.color }}
                       >
                         ▶
                       </span>
-                      <span
-                        style={{
-                          fontSize: 14,
-                          color: textSub,
-                          lineHeight: 1.7,
-                        }}
-                      >
+                      <span className="text-sm text-theme-sub leading-[1.7]">
                         {d}
                       </span>
                     </div>
                   ))}
                 </div>
-                <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
+
+                <div className="flex flex-wrap gap-[6px]">
                   {exp.stack.map((s) => (
                     <span
                       key={s}
-                      style={{
-                        background: dark ? "#ffffff12" : "#f0f0f8",
-                        color: textMain,
-                        borderRadius: 6,
-                        padding: "3px 10px",
-                        fontSize: 12,
-                        fontWeight: 600,
-                      }}
+                      className="rounded-[6px] px-[10px] py-[3px] text-[12px] font-semibold text-theme-text dark:bg-white/[0.07] bg-[#f0f0f8]"
                     >
                       {s}
                     </span>
