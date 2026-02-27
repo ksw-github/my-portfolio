@@ -10,10 +10,15 @@ export interface Project {
   desc: string;
   stack: string[];
   color: string;
-  image: string;
+  images: string[];
   company: string;
   github: string;
   demo: string;
+  period: string;
+  members: number;
+  contribution: number;
+  tags: string[];
+  highlights: string[];
 }
 
 export interface GithubStat {
