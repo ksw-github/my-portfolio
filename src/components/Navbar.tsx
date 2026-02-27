@@ -19,7 +19,7 @@ interface NavbarProps {
 }
 
 export default function Navbar({ activeSection, onScrollTo }: NavbarProps) {
-  const { dark, toggleDark } = useTheme();
+  const { mode, setMode } = useTheme();
 
   return (
     <nav
@@ -60,17 +60,39 @@ export default function Navbar({ activeSection, onScrollTo }: NavbarProps) {
           );
         })}
 
-        {/* 다크모드 토글 */}
-        <button
-          onClick={toggleDark}
-          className="flex items-center justify-center w-9 h-9 rounded-full ml-2 text-base border-none cursor-pointer transition-[transform,background] duration-200 hover:scale-110 hover:rotate-[15deg]"
-          style={{
-            background: dark ? COLORS.yellow : "#1a1a2e",
-            color: dark ? "#1a1a2e" : "#fff",
-          }}
-        >
-          {dark ? "☀️" : "🌙"}
-        </button>
+        {/* 테마 세그먼트 컨트롤 */}
+        <div className="flex items-center ml-2 rounded-full p-[3px] dark:bg-white/[0.08] bg-black/[0.06]">
+          {(
+            [
+              { m: "light", icon: "☀️", title: "라이트 모드" },
+              { m: "dark", icon: "🌙", title: "다크 모드" },
+              { m: "system", icon: "💻", title: "시스템 설정" },
+            ] as const
+          ).map(({ m, icon, title }) => {
+            const isActive = mode === m;
+            const activeStyle = {
+              light: { background: COLORS.yellow, color: "#1a1a2e" },
+              dark: { background: "#1a1a2e", color: "#fff" },
+              system: { background: COLORS.sky, color: "#fff" },
+            }[m];
+            return (
+              <button
+                key={m}
+                onClick={() => setMode(m)}
+                title={title}
+                className={[
+                  "w-8 h-8 rounded-full border-none cursor-pointer text-sm transition-[background,transform,opacity] duration-200",
+                  isActive
+                    ? "scale-100"
+                    : "bg-transparent opacity-50 hover:opacity-80 hover:scale-105",
+                ].join(" ")}
+                style={isActive ? activeStyle : undefined}
+              >
+                {icon}
+              </button>
+            );
+          })}
+        </div>
       </div>
     </nav>
   );
