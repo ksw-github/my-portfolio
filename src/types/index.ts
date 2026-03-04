@@ -16,9 +16,10 @@ export interface Project {
   demo: string;
   period: string;
   members: number;
+  memberRole: string;
   contribution: number;
   tags: string[];
-  highlights: string[];
+  features: { title: string; items: Array<string> }[];
 }
 
 export interface GithubStat {

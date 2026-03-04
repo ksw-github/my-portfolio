@@ -10,7 +10,6 @@ import AboutSection from "@/components/sections/AboutSection";
 import ExperienceSection from "@/components/sections/ExperienceSection";
 import EducationSection from "@/components/sections/EducationSection";
 import ProjectsSection from "@/components/sections/ProjectsSection";
-// import GithubSection from "@/components/sections/GithubSection";
 import ContactSection from "@/components/sections/ContactSection";
 import ScrollTopButton from "@/components/ui/ScrollTopButton";
 
@@ -24,7 +23,6 @@ export default function Portfolio() {
       "experience",
       "education",
       "projects",
-      "github",
       "contact",
     ];
     const observers = ids.map((id) => {
@@ -43,8 +41,11 @@ export default function Portfolio() {
   }, []);
 
   const scrollTo = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-    setActiveSection(id);
+    const el = document.getElementById(id);
+    if (el) {
+      const top = el.getBoundingClientRect().top + window.scrollY - 60;
+      window.scrollTo({ top, behavior: "smooth" });
+    }
   };
 
   return (
@@ -104,7 +105,6 @@ export default function Portfolio() {
         <ExperienceSection />
         <ProjectsSection />
         <EducationSection />
-        {/* <GithubSection /> */}
         <ContactSection />
         <Footer />
       </div>

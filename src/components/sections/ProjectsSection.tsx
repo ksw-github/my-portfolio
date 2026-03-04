@@ -1,3 +1,5 @@
+"use client";
+
 import { COLORS } from "@/constants/colors";
 import { projects } from "@/data/projects";
 import ProjectCard from "@/components/ui/ProjectCard";
@@ -14,7 +16,7 @@ export default function ProjectsSection() {
       style={animStyle}
     >
       <div className="max-w-[1100px] mx-auto">
-        <SectionTitle title="Projects" accent={COLORS.coral} />
+        <SectionTitle title="Projects" accent={COLORS.orange} />
         <div
           className="grid gap-6"
           style={{

@@ -9,7 +9,6 @@ const SECTIONS = [
   "experience",
   "projects",
   "education",
-  "github",
   "contact",
 ];
 
@@ -22,9 +21,7 @@ export default function Navbar({ activeSection, onScrollTo }: NavbarProps) {
   const { mode, setMode } = useTheme();
 
   return (
-    <nav
-      className="fixed top-0 left-0 right-0 z-[100] bg-theme-nav backdrop-blur-[12px] px-[5%] flex items-center justify-between h-16 border-b dark:border-white/[0.08] border-black/[0.06] [animation:navSlideDown_0.4s_cubic-bezier(0.4,0,0.2,1)_both]"
-    >
+    <nav className="fixed top-0 left-0 right-0 z-[100] bg-theme-nav backdrop-blur-[12px] px-[5%] flex items-center justify-between h-16 border-b dark:border-white/[0.08] border-black/[0.06] [animation:navSlideDown_0.4s_cubic-bezier(0.4,0,0.2,1)_both]">
       {/* 로고 */}
       <div
         onClick={() => window.location.reload()}
