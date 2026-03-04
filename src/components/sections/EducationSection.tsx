@@ -12,18 +12,15 @@ export default function EducationSection() {
     <section
       ref={ref}
       id="education"
-      className="py-[100px] px-[5%] dark:bg-[#13131f] bg-[#f5f5ff]"
+      className="py-[100px] px-[5%] dark:bg-[#13131f]"
       style={animStyle}
     >
       <div className="max-w-[1100px] mx-auto">
-        <SectionTitle
-          title="Education & Certifications"
-          accent={COLORS.purple}
-        />
+        <SectionTitle title="Education & Certifications" accent={COLORS.mint} />
         <div className="grid grid-cols-2 gap-10 items-start">
           {/* Education */}
           <div>
-            <h3 className="text-base font-extrabold text-purple tracking-[1px] uppercase mb-5">
+            <h3 className="text-base font-extrabold text-mint tracking-[1px] uppercase mb-5">
               🎓 학력
             </h3>
             <div className="flex flex-col gap-4">

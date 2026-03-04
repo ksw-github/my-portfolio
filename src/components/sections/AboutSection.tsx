@@ -56,8 +56,12 @@ export default function AboutSection() {
                 key={item.label}
                 className="bg-theme-card rounded-[14px] px-6 py-4 shadow-[0_2px_12px_rgba(0,0,0,0.06)] text-center"
               >
-                <div className="font-black text-2xl text-coral">{item.value}</div>
-                <div className="text-xs text-theme-sub font-semibold">{item.label}</div>
+                <div className="font-black text-2xl text-coral">
+                  {item.value}
+                </div>
+                <div className="text-xs text-theme-sub font-semibold">
+                  {item.label}
+                </div>
               </div>
             ))}
           </div>

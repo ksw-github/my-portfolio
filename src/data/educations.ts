@@ -7,7 +7,7 @@ export const educations: Education[] = [
     degree: "아동학전공",
     period: "2019.02 ~ 2023.02 (졸업)",
     gpa: "3.74/4.5",
-    color: COLORS.purple,
+    color: COLORS.mint,
     icon: "🎓",
   },
 ];
