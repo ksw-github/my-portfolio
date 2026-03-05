@@ -360,12 +360,12 @@ function ProjectModal({
                 {project.features.map((feature, i) => (
                   <div key={i}>
                     <div
-                      className="text-[15px] font-extrabold mb-1.5"
+                      className="text-[15px] font-extrabold mb-1"
                       style={{ color: project.color }}
                     >
                       {feature.title}
                     </div>
-                    <ul className="space-y-1.5 m-0 p-0 list-none">
+                    <ul className="space-y-0.5 m-0 p-0 list-none">
                       {feature.items.map((item, j) => (
                         <li key={j} className="flex items-start gap-2">
                           <span

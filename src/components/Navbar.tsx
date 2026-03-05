@@ -25,7 +25,7 @@ export default function Navbar({ activeSection, onScrollTo }: NavbarProps) {
       {/* 로고 */}
       <div
         onClick={() => window.location.reload()}
-        className="font-black text-[22px] tracking-[-1px] cursor-pointer hover:scale-[1.08] transition-transform duration-200"
+        className="font-black text-[22px] tracking-[-1px] cursor-pointer"
       >
         <span className="text-coral">{"<"}</span>
         <span className="text-theme-text">SW</span>
