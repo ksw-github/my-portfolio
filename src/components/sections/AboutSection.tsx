@@ -24,9 +24,9 @@ export default function AboutSection() {
   }, []);
 
   const stats = [
-    { label: "경력", value: "2년" },
-    { label: "프로젝트", value: "4+" },
-    { label: "커밋", value: "1,200+" },
+    { label: "공공기관 납품", value: "2건" },
+    { label: "관여 프로젝트", value: "8+" },
+    { label: "활용 기술·툴", value: "15+" },
   ];
 
   return (

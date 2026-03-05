@@ -69,9 +69,9 @@ export default function HeroSection({ onScrollTo }: HeroSectionProps) {
 
         {/* 부제목 */}
         <p className="text-[18px] text-theme-sub max-w-[540px] mx-auto mb-9 leading-[1.7]">
-          사용자 경험을 중심으로 생각하는 프론트엔드 개발자입니다.
+          디자인부터 개발까지, 서비스 전체를 이해하는 프론트엔드 개발자입니다.
           <br />
-          React와 Next.js로 빠르고 편리한 웹을 만듭니다.
+          기획·디자인·개발 사이의 연결고리로 완성도 높은 화면을 구현합니다.
         </p>
 
         {/* 버튼 */}
