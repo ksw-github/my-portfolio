@@ -77,7 +77,7 @@ export default function EmailModal({ onClose }: { onClose: () => void }) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm px-4">
-      <div className="bg-theme-card rounded-[24px] p-8 w-full max-w-[480px] shadow-2xl">
+      <div className="bg-theme-card rounded-[24px] p-5 sm:p-8 w-full max-w-[480px] shadow-2xl">
         {submitted ? (
           <div className="text-center py-8">
             <div className="text-[60px] mb-4">🎉</div>

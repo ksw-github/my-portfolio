@@ -99,7 +99,7 @@ export default function Portfolio() {
 
       <Navbar activeSection={activeSection} onScrollTo={scrollTo} />
 
-      <div className="relative z-10 pt-16">
+      <div className="relative z-10 pt-10">
         <HeroSection onScrollTo={scrollTo} />
         <AboutSection />
         <ExperienceSection />

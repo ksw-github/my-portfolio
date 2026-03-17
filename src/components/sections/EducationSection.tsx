@@ -17,7 +17,7 @@ export default function EducationSection() {
     >
       <div className="max-w-[1100px] mx-auto">
         <SectionTitle title="Education & Certifications" accent={COLORS.mint} />
-        <div className="grid grid-cols-2 gap-10 items-start">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-10 items-start">
           {/* Education */}
           <div>
             <h3 className="text-base font-extrabold text-mint tracking-[1px] uppercase mb-5">
@@ -27,7 +27,7 @@ export default function EducationSection() {
               {educations.map((edu, i) => (
                 <div
                   key={i}
-                  className="bg-theme-card rounded-[18px] px-7 py-6 shadow-[0_2px_16px_rgba(0,0,0,0.06)]"
+                  className="bg-theme-card rounded-[18px] px-4 sm:px-7 py-5 sm:py-6 shadow-[0_2px_16px_rgba(0,0,0,0.06)]"
                   style={{ border: `2px solid ${edu.color}22` }}
                 >
                   <div className="text-[32px] mb-3">{edu.icon}</div>

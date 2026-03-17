@@ -103,14 +103,14 @@ export default function ContactSection() {
       >
         <div className="max-w-[640px] mx-auto">
           <SectionTitle title="Contact" accent={COLORS.purple} />
-          <div className="bg-theme-card rounded-[24px] p-10 shadow-[0_4px_30px_rgba(0,0,0,0.08)]">
+          <div className="bg-theme-card rounded-[24px] p-6 sm:p-10 shadow-[0_4px_30px_rgba(0,0,0,0.08)]">
             <div
               className="h-[3px] rounded-full mb-8"
               style={{
                 background: `linear-gradient(135deg, ${COLORS.purple}, ${COLORS.sky})`,
               }}
             />
-            <div className="grid grid-cols-2 gap-10 mb-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-10 mb-8 sm:mb-10">
               {CONTACT_ITEMS.map((item) => (
                 <div key={item.label} className="flex items-center gap-3">
                   <div

@@ -37,7 +37,7 @@ export default function AboutSection() {
       style={animStyle}
     >
       <SectionTitle title="About Me" accent={COLORS.sky} />
-      <div className="grid grid-cols-2 gap-12 items-start">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-12 items-start">
         <div>
           <p className="text-base text-theme-sub leading-[1.9] mb-6">
             웹 디자이너로 커리어를 시작하며 UI/UX 완성도에 대한 감각을 키웠고,

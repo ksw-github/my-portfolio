@@ -21,9 +21,9 @@ export default function ExperienceSection() {
       <div className="relative">
         {/* 타임라인 세로선 */}
         <div className="absolute left-5 top-0 bottom-0 w-0.5 rounded-full bg-gradient-to-b from-coral to-sky" />
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-6 sm:gap-8">
           {experiences.map((exp, i) => (
-            <div key={i} className="flex gap-8 items-start">
+            <div key={i} className="flex gap-4 sm:gap-8 items-start">
               {/* 타임라인 아이콘 */}
               <div
                 className="shrink-0 w-[42px] h-[42px] rounded-full flex items-center justify-center text-[20px] z-10"
@@ -37,7 +37,7 @@ export default function ExperienceSection() {
 
               {/* 카드 */}
               <div
-                className="flex-1 bg-theme-card rounded-[20px] px-8 py-7 shadow-[0_2px_20px_rgba(0,0,0,0.07)]"
+                className="flex-1 bg-theme-card rounded-[20px] px-4 sm:px-8 py-5 sm:py-7 shadow-[0_2px_20px_rgba(0,0,0,0.07)]"
                 style={{ border: `2px solid ${exp.color}22` }}
               >
                 <div className="flex justify-between items-start flex-wrap gap-2 mb-3">

@@ -231,11 +231,11 @@ function ProjectModal({
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="bg-theme-card rounded-[24px] w-full max-w-[660px] max-h-[90vh] flex flex-col shadow-[0_32px_80px_rgba(0,0,0,0.35)] overflow-hidden"
+        className="bg-theme-card rounded-[24px] w-full max-w-[660px] max-h-[90vh] flex flex-col shadow-[0_32px_80px_rgba(0,0,0,0.35)] overflow-hidden mx-2 sm:mx-0"
         style={{ border: `2px solid ${project.color}33` }}
       >
         {/* 헤더 */}
-        <div className="flex items-center justify-between px-7 py-4 border-b border-black/[0.08] dark:border-white/[0.08] flex-shrink-0">
+        <div className="flex items-center justify-between px-4 sm:px-7 py-4 border-b border-black/[0.08] dark:border-white/[0.08] flex-shrink-0">
           <div>
             <div
               className="inline-block rounded-lg px-[10px] py-[2px] text-[12px] font-bold mb-1"
@@ -263,7 +263,7 @@ function ProjectModal({
         <div className="overflow-y-auto flex-1">
           <ImageSlideshow images={project.images} title={project.title} />
 
-          <div className="px-7 py-6 space-y-5">
+          <div className="px-4 sm:px-7 py-5 sm:py-6 space-y-5">
             {/* 메타 정보 */}
             <div className="flex items-center gap-3 text-[13px] flex-wrap">
               <span className="flex items-center gap-1.5 text-theme-sub">

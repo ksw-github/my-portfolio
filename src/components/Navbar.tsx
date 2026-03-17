@@ -33,32 +33,34 @@ export default function Navbar({ activeSection, onScrollTo }: NavbarProps) {
         <span className="text-sky">{">"}</span>
       </div>
 
-      {/* 네비게이션 버튼 */}
       <div className="flex gap-1 items-center">
-        {SECTIONS.map((s) => {
-          const isActive = activeSection === s;
-          return (
-            <button
-              key={s}
-              onClick={() => onScrollTo(s)}
-              className={[
-                "relative border-none rounded-lg px-[14px] py-[6px] text-sm capitalize cursor-pointer",
-                "transition-[background,color,transform] duration-200",
-                isActive
-                  ? "bg-coral text-white font-bold"
-                  : "bg-transparent text-theme-sub font-semibold dark:hover:bg-white/[0.07] hover:bg-black/[0.03] hover:text-theme-text hover:-translate-y-px",
-              ].join(" ")}
-            >
-              {s}
-              {isActive && (
-                <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-coral" />
-              )}
-            </button>
-          );
-        })}
+        {/* 네비게이션 버튼 — 모바일에서 숨김 */}
+        <div className="hidden sm:flex gap-1 items-center">
+          {SECTIONS.map((s) => {
+            const isActive = activeSection === s;
+            return (
+              <button
+                key={s}
+                onClick={() => onScrollTo(s)}
+                className={[
+                  "relative border-none rounded-lg px-[14px] py-[6px] text-sm capitalize cursor-pointer",
+                  "transition-[background,color,transform] duration-200",
+                  isActive
+                    ? "bg-coral text-white font-bold"
+                    : "bg-transparent text-theme-sub font-semibold dark:hover:bg-white/[0.07] hover:bg-black/[0.03] hover:text-theme-text hover:-translate-y-px",
+                ].join(" ")}
+              >
+                {s}
+                {isActive && (
+                  <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-coral" />
+                )}
+              </button>
+            );
+          })}
+        </div>
 
         {/* 테마 세그먼트 컨트롤 */}
-        <div className="flex items-center ml-2 rounded-full p-[3px] dark:bg-white/[0.08] bg-black/[0.06]">
+        <div className="flex items-center ml-0 sm:ml-2 rounded-full p-[3px] dark:bg-white/[0.08] bg-black/[0.06]">
           {(
             [
               { m: "light", icon: "☀️", title: "라이트 모드" },
