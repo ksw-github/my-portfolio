@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { createPortal } from "react-dom";
 import { Project } from "@/types";
@@ -71,6 +71,18 @@ function ImageSlideshow({
   const animStyle = {
     animation: `${dir === "right" ? "slideFromRight" : "slideFromLeft"} 0.32s ease`,
   };
+
+  // 라이트박스 키보드 네비게이션
+  useEffect(() => {
+    if (!lightboxOpen) return;
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") go(idx - 1, "left");
+      else if (e.key === "ArrowRight") go(idx + 1, "right");
+      else if (e.key === "Escape") setLightboxOpen(false);
+    };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, [lightboxOpen, idx]);
 
   return (
     <>

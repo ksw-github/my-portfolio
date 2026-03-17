@@ -8,6 +8,34 @@ interface HeroSectionProps {
   onScrollTo: (id: string) => void;
 }
 
+// 글자별 자동 색상 웨이브
+function InteractiveText({
+  text,
+  baseDelay = 0,
+}: {
+  text: string;
+  baseDelay?: number;
+}) {
+  return (
+    <>
+      {text.split("").map((char, i) => (
+        <span
+          key={i}
+          className="inline-block"
+          style={{
+            animation: [
+              `charReveal 0.5s cubic-bezier(0.22,1,0.36,1) ${baseDelay + i * 0.04}s both`,
+              `charColorCycle 4s linear -${(baseDelay + i * 0.25).toFixed(2)}s infinite`,
+            ].join(", "),
+          }}
+        >
+          {char === " " ? "\u00A0" : char}
+        </span>
+      ))}
+    </>
+  );
+}
+
 export default function HeroSection({ onScrollTo }: HeroSectionProps) {
   const { dark } = useTheme();
   const techColors = [
@@ -50,21 +78,12 @@ export default function HeroSection({ onScrollTo }: HeroSectionProps) {
         </div>
 
         {/* 제목 */}
-        <h1
-          className="text-[clamp(40px,7vw,80px)] font-black mt-0 mb-4 leading-[1.1]"
-          style={{
-            background: dark
-              ? `linear-gradient(135deg, #fff, ${COLORS.sky})`
-              : `linear-gradient(135deg, #1a1a2e, ${COLORS.coral})`,
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-          }}
-        >
-          안녕하세요,
+        <h1 className="text-[clamp(30px,7vw,70px)] font-black mt-0 mb-4 leading-[1.2] text-theme-text">
+          <InteractiveText text="안녕하세요," baseDelay={0} />
           <br />
-          웹 프론트엔드 개발자
+          <InteractiveText text="웹 프론트엔드 개발자" baseDelay={0.28} />
           <br />
-          김서우입니다
+          <InteractiveText text="김서우입니다" baseDelay={0.64} />
         </h1>
 
         {/* 부제목 */}
@@ -78,14 +97,31 @@ export default function HeroSection({ onScrollTo }: HeroSectionProps) {
         <div className="flex gap-[14px] justify-center flex-wrap">
           <button
             onClick={() => onScrollTo("projects")}
-            className="text-white border-none rounded-xl px-8 py-[14px] font-extrabold text-base cursor-pointer transition-transform duration-200 hover:-translate-y-0.5"
+            className="text-white border-none rounded-xl px-8 py-[14px] font-extrabold text-base cursor-pointer transition-transform duration-200 hover:-translate-y-0.5 flex items-center gap-2"
             style={{
               background: `linear-gradient(135deg, ${COLORS.coral}, ${COLORS.orange})`,
               boxShadow: `0 6px 24px ${COLORS.coral}55`,
             }}
           >
-            프로젝트 보기 →
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+              <rect x="3" y="3" width="7" height="7" rx="1" />
+              <rect x="14" y="3" width="7" height="7" rx="1" />
+              <rect x="3" y="14" width="7" height="7" rx="1" />
+              <rect x="14" y="14" width="7" height="7" rx="1" />
+            </svg>
+            프로젝트 보기
           </button>
+          <a
+            href="/이력서_202603.pdf"
+            download="이력서_김서우.pdf"
+            className="text-white border-none rounded-xl px-8 py-[14px] font-extrabold text-base cursor-pointer transition-transform duration-200 hover:-translate-y-0.5 no-underline flex items-center gap-2"
+            style={{
+              background: `linear-gradient(135deg, ${COLORS.sky}, ${COLORS.purple})`,
+              boxShadow: `0 6px 24px ${COLORS.sky}55`,
+            }}
+          >
+            📄 이력서 다운로드
+          </a>
           <button
             onClick={() => onScrollTo("contact")}
             className="bg-transparent text-theme-text rounded-xl px-8 py-[14px] font-bold text-base cursor-pointer transition-all duration-200 hover:-translate-y-0.5"
@@ -98,7 +134,7 @@ export default function HeroSection({ onScrollTo }: HeroSectionProps) {
         </div>
 
         {/* 기술 태그 */}
-        <div className="mt-[60px] flex gap-4 justify-center flex-wrap">
+        <div className="mt-10 sm:mt-[60px] flex gap-3 sm:gap-4 justify-center flex-wrap">
           {[
             "React",
             "Next.js",
