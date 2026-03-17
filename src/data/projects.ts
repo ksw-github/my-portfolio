@@ -222,7 +222,12 @@ export const projects: Project[] = [
     desc: "모바일 방문증 앱 디자인, 울산광역시 청사안내 키오스크 디자인 등 다수의 UI/UX 디자인 및 퍼블리싱을 전담하였습니다.",
     stack: ["HTML", "CSS", "Figma", "Photoshop", "Illustrator"],
     color: COLORS.purple,
-    images: ["/app_design.png", "/kiosk_design.png", "/kgc_figma.png"],
+    images: [
+      "/app_design.png",
+      "/kiosk_design.png",
+      "/kgc_figma.png",
+      "/posco.png",
+    ],
     company: "디지탈센스",
     github: "#",
     demo: "#",
@@ -236,6 +241,7 @@ export const projects: Project[] = [
         title: "UI/UX 디자인 & 퍼블리싱",
         items: [
           "한국인삼공사 무인 출입/안전관리 UI/UX",
+          "포스코 물품 반출입 시스템 UI/UX",
           "사내 모바일 방문증 앱 UI/UX",
           "울산광역시 청사안내 키오스크 터치 인터페이스 UI/UX",
         ],
