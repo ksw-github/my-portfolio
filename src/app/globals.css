@@ -24,6 +24,36 @@
   }
 }
 
+/* ── 스크롤바 ── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #FF6B6B66;
+  border-radius: 999px;
+  transition: background 0.2s;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #FF6B6B;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #4D96FF55;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #4D96FF;
+}
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #FF6B6B66 transparent;
+}
+.dark * {
+  scrollbar-color: #4D96FF55 transparent;
+}
+
 @keyframes navSlideDown {
   from {
     transform: translateY(-100%);
