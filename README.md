@@ -18,6 +18,8 @@
 - **스크롤 감지 네비게이션** — `IntersectionObserver`로 현재 섹션을 자동 감지하여 활성 상태 표시
 - **프로젝트 라이트박스** — `ProjectCard`에서 이미지 슬라이드 뷰어 지원
 - **이메일 전송** — Resend API를 활용한 문의 이메일 전송 (`ContactSection`, `Footer` 두 곳에서 재사용)
+- **이력서 다운로드** — Hero 섹션에서 PDF 직접 다운로드
+- **모바일 반응형** — 전 섹션 sm 브레이크포인트 기준 반응형 레이아웃 적용
 - **부드러운 스크롤** — 네비게이션 클릭 시 섹션 오프셋(−60px) 적용
 - **Decorative Blobs** — 배경 반투명 blob으로 시각적 깊이 연출
 
@@ -29,7 +31,7 @@ Home → About → Experience → Projects → Education → Contact
 
 | 섹션 | ID | 설명 |
 |------|----|------|
-| Hero | `home` | 인트로 히어로 섹션 |
+| Hero | `home` | 글자별 색상 웨이브 애니메이션 + 이력서 다운로드 |
 | About | `about` | 자기소개 및 스킬 바 |
 | Experience | `experience` | 경력 타임라인 |
 | Projects | `projects` | 프로젝트 카드 + 이미지 슬라이드 |
