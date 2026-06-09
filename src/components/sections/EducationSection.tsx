@@ -1,7 +1,7 @@
 "use client";
 
 import { COLORS } from "@/constants/colors";
-import { educations } from "@/data/educations";
+import { educations, activities } from "@/data/educations";
 import SectionTitle from "@/components/ui/SectionTitle";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
@@ -16,7 +16,7 @@ export default function EducationSection() {
       style={animStyle}
     >
       <div className="max-w-[1100px] mx-auto">
-        <SectionTitle title="Education & Certifications" accent={COLORS.mint} />
+        <SectionTitle title="Education & Activities" accent={COLORS.mint} />
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-10 items-start">
           {/* Education */}
           <div>
@@ -61,12 +61,40 @@ export default function EducationSection() {
             </div>
           </div>
 
-          {/* Certifications */}
+          {/* Activities */}
           <div>
             <h3 className="text-base font-extrabold text-mint tracking-[1px] uppercase mb-5">
-              📜 자격증
+              🏫 활동 / 교육
             </h3>
-            {/* certifications 비활성 */}
+            <div className="flex flex-col gap-4">
+              {activities.map((act, i) => (
+                <div
+                  key={i}
+                  className="bg-theme-card rounded-[18px] px-4 sm:px-7 py-5 sm:py-6 shadow-[0_2px_16px_rgba(0,0,0,0.06)]"
+                  style={{ border: `2px solid ${act.color}22` }}
+                >
+                  <div className="text-[32px] mb-3">{act.icon}</div>
+                  <div className="text-[18px] font-extrabold text-theme-text mb-1">
+                    {act.institution}
+                  </div>
+                  <div
+                    className="text-[15px] font-semibold mb-2 leading-snug"
+                    style={{ color: act.color }}
+                  >
+                    {act.course}
+                  </div>
+                  <span
+                    className="rounded-[6px] px-[10px] py-[3px] text-[13px] font-bold"
+                    style={{
+                      background: `${act.color}18`,
+                      color: act.color,
+                    }}
+                  >
+                    {act.period}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

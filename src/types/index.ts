@@ -58,3 +58,11 @@ export interface Certification {
   color: string;
   icon: string;
 }
+
+export interface Activity {
+  institution: string;
+  course: string;
+  period: string;
+  color: string;
+  icon: string;
+}
