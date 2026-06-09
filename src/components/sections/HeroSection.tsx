@@ -81,16 +81,17 @@ export default function HeroSection({ onScrollTo }: HeroSectionProps) {
         <h1 className="text-[clamp(30px,7vw,70px)] font-black mt-0 mb-4 leading-[1.2] text-theme-text">
           <InteractiveText text="안녕하세요," baseDelay={0} />
           <br />
-          <InteractiveText text="웹 프론트엔드 개발자" baseDelay={0.28} />
+          <InteractiveText text="팀의 병목을 줄이는" baseDelay={0.28} />
           <br />
-          <InteractiveText text="김서우입니다" baseDelay={0.64} />
+          <InteractiveText text="개발자 김서우입니다" baseDelay={0.64} />
         </h1>
 
         {/* 부제목 */}
         <p className="text-[18px] text-theme-sub max-w-[540px] mx-auto mb-9 leading-[1.7]">
           디자인부터 개발까지, 서비스 전체를 이해하는 프론트엔드 개발자입니다.
           <br />
-          기획·디자인·개발 사이의 연결고리로 완성도 높은 화면을 구현합니다.
+          구현부터 배포까지 팀이 더 빠르게 움직이도록 돕고 AWS · Docker · EC2를
+          경험한 기술 범위로 크로스팀 협업의 의존성을 줄입니다.
         </p>
 
         {/* 버튼 */}

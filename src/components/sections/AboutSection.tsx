@@ -47,10 +47,18 @@ export default function AboutSection() {
           </p>
           <p className="text-base text-theme-sub leading-[1.9] mb-8">
             디자인과 마크업에 대한 높은 이해도를 기반으로, React/Next.js 중심의
-            컴포넌트설계와 유지보수 가능한 코드 구조를 고민하며 성장해왔습니다.
-            기획·디자인·개발 사이의 연결을 잘 이해하는 것이 저의 강점입니다.
+            컴포넌트설계와 유지보수 가능한 코드 구조를 고민하고 성장하여 기획 ·
+            디자인 · 개발 사이의 연결을 잘 이해하는 것이 저의 강점입니다.
           </p>
-          <div className="flex gap-3 flex-wrap">
+          <p className="text-base text-theme-sub leading-[1.9] mb-8">
+            React/Next.js 중심의 컴포넌트 설계부터 AWS · Docker · EC2를 활용한
+            배포까지 직접 경험했습니다. SQLD로 다진 데이터 이해를 바탕으로
+            백엔드팀과 의미 있는 논의를 나눌 수 있어, 팀의 의존성과 대기를
+            줄이는 것이 저의 강점입니다.
+          </p>
+        </div>
+        <div>
+          <div className="flex gap-3 flex-wrap justify-between">
             {stats.map((item) => (
               <div
                 key={item.label}
@@ -65,11 +73,16 @@ export default function AboutSection() {
               </div>
             ))}
           </div>
-        </div>
-        <div ref={skillsRef}>
-          {skills.map((skill) => (
-            <SkillBar key={skill.name} skill={skill} visible={skillsVisible} />
-          ))}
+          <br />
+          <div ref={skillsRef}>
+            {skills.map((skill) => (
+              <SkillBar
+                key={skill.name}
+                skill={skill}
+                visible={skillsVisible}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
