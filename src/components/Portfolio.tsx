@@ -13,7 +13,11 @@ import ProjectsSection from "@/components/sections/ProjectsSection";
 import ContactSection from "@/components/sections/ContactSection";
 import ScrollTopButton from "@/components/ui/ScrollTopButton";
 
-export default function Portfolio() {
+interface PortfolioProps {
+  careerYear: number;
+}
+
+export default function Portfolio({ careerYear }: PortfolioProps) {
   const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
@@ -100,7 +104,7 @@ export default function Portfolio() {
       <Navbar activeSection={activeSection} onScrollTo={scrollTo} />
 
       <div className="relative z-10 pt-10">
-        <HeroSection onScrollTo={scrollTo} />
+        <HeroSection onScrollTo={scrollTo} careerYear={careerYear} />
         <AboutSection />
         <ExperienceSection />
         <ProjectsSection />

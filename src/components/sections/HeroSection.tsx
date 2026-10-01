@@ -6,6 +6,7 @@ import { COLORS } from "@/constants/colors";
 
 interface HeroSectionProps {
   onScrollTo: (id: string) => void;
+  careerYear: number;
 }
 
 // 글자별 자동 색상 웨이브
@@ -36,7 +37,7 @@ function InteractiveText({
   );
 }
 
-export default function HeroSection({ onScrollTo }: HeroSectionProps) {
+export default function HeroSection({ onScrollTo, careerYear }: HeroSectionProps) {
   const { dark } = useTheme();
   const techColors = [
     COLORS.coral,
@@ -74,7 +75,7 @@ export default function HeroSection({ onScrollTo }: HeroSectionProps) {
             border: `1px solid ${COLORS.coral}44`,
           }}
         >
-          Frontend Developer · 2년차
+          Frontend Developer · {careerYear}년차
         </div>
 
         {/* 제목 */}
